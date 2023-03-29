@@ -2,10 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  // console.log(styles)
   return (
     <>
       <Head>
@@ -19,10 +22,10 @@ export default function Home() {
         <div className={styles.description}>
           <nav className={styles.mainnav}>
               <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Blog</li>
-                <li>Contact</li>
+                <Link href='/'><li>Home</li></Link>
+                <Link href='/about'><li>About</li></Link>
+                <Link href='/blog'><li>Blog</li></Link>
+                <Link href='/contact'><li>Contact</li></Link>
               </ul>
           </nav>
         </div>
@@ -33,7 +36,28 @@ export default function Home() {
             <h1>Coders Blog</h1>
           </div>
         </div>
+      <div className={styles.imgwrap}>
+        <Image className={styles.homeImg} src="/home.jpg" alt='home' width={300} height={200} />
+      </div>
+      <p className={styles.tagline}>
+          Discover, Learn and Grow with Me✍️
+      </p>
 
+      <div className={styles.blogs}>
+        <h2 className={styles.h2tag}>Popular Blogs</h2>
+        <div className={styles.blogItem}>
+          <h3>How to learn JavaScript in 2022?</h3>
+          <p>JavaScript is the language used to design logic for the web</p>
+        </div>
+        <div className={styles.blogItem}>
+          <h3>How to learn JavaScript in 2022?</h3>
+          <p>JavaScript is the language used to design logic for the web</p>
+        </div>
+        <div className={styles.blogItem}>
+          <h3>How to learn JavaScript in 2022?</h3>
+          <p>JavaScript is the language used to design logic for the web</p>
+        </div>
+      </div>
 
       </main>
     </>

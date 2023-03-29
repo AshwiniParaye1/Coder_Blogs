@@ -294,3 +294,32 @@
   list-style: none;
   font-weight: bold;
 }  
+
+.homeImg {
+  border-radius: 10px;
+  }
+
+.imgwrap {
+  padding: 5px;
+  align-items: center;
+}
+
+.tagline {
+  margin: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogs h2 {
+  margin: auto;
+  font-size: 35px;
+}
+
+.blogs .blogItem {
+  padding: 20px;
+}
