@@ -1,8 +1,20 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 
 const Blog = () => {
+
+  useEffect(() => {
+    console.log("useEffect is running");
+    fetch('http://localhost:3000/api/blogs')
+    .then((res) => res.json())
+    .then(data => {
+      console.log('data ==== ', data)
+      // console.log('data ==== ',data[0].content)
+    })
+  })
+  
+
   return (
     <div>
     <main className={styles.main}>
