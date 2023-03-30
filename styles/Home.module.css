@@ -317,7 +317,6 @@
 .blogs {
   display: flex;
   flex-direction: column;
-  text-align: justify;
 }
 
 .blogs h2 {
