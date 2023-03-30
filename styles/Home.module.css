@@ -7,6 +7,7 @@
   min-height: 100vh;
 }
 
+
 .description {
   /* display: inherit; */
   /* justify-content: inherit; */
@@ -14,7 +15,7 @@
   /* font-size: 0.85rem; */
   max-width: var(--max-width);
   width: 100%;
-  z-index: 2;
+  /* z-index: 2; */
   font-family: var(--font-mono);
   display: flex;
   justify-content: center;
@@ -284,6 +285,7 @@
 }
 
 .mainnav ul{
+  /* font-family: var(--font-mono); */
   display: flex;
   justify-content: center;
   margin-top: 50px;
@@ -322,4 +324,9 @@
 
 .blogs .blogItem {
   padding: 20px;
+}
+
+.blogs .blogItem h3{
+  font-size: 25px;
+  margin-bottom: 5px;
 }

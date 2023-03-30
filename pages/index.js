@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Link from 'next/link';
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,18 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-
-        <div className={styles.description}>
-          <nav className={styles.mainnav}>
-              <ul>
-                <Link href='/'><li>Home</li></Link>
-                <Link href='/about'><li>About</li></Link>
-                <Link href='/blog'><li>Blog</li></Link>
-                <Link href='/contact'><li>Contact</li></Link>
-              </ul>
-          </nav>
-        </div>
-
+        
         <div className={styles.center}>
         
           <div className={styles.thirteen}>
@@ -44,7 +34,7 @@ export default function Home() {
       </p>
 
       <div className={styles.blogs}>
-        <h2 className={styles.h2tag}>Popular Blogs</h2>
+        <h2>Latest Blogs</h2>
         <div className={styles.blogItem}>
           <h3>How to learn JavaScript in 2022?</h3>
           <p>JavaScript is the language used to design logic for the web</p>
