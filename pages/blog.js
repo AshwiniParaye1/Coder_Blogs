@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
 
 const Blog = () => {
+
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     console.log("useEffect is running");
@@ -11,35 +13,29 @@ const Blog = () => {
     .then(data => {
       console.log('data ==== ', data)
       // console.log('data ==== ',data[0].content)
+      setBlogs(data)
     })
-  })
+  }, [])
   
 
   return (
     <div>
     <main className={styles.main}>
+      {
+        blogs.map( (blogItem) => {
+          return <div className={styles.blogs} key={blogItem.title}>
+          <div className={styles.blogItem}>
 
-        {/* <h2 className={styles.h2tag}>Latest Blogs</h2> */}
-        <div className={styles.blogs}>
-          <div className={styles.blogItem}>
-          <Link href={'/blogpost/learn-javascript'}>
-            <h3 className={styles.h3tag}>How to learn JavaScript in 2022?</h3></Link>
-            <p>JavaScript is the language used to design logic for the web Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi tempore alias placeat esse, facilis, tempora ipsa non nostrum iste possimus libero sint fuga quis nesciunt. Laboriosam, quia. Deleniti veniam sunt eum reiciendis exercitationem obcaecati natus id ratione! Iure dolorum ipsa aperiam. Necessitatibus nam labore sit.</p>
-          </div>
-          <div className={styles.blogItem}>
-            <h3>How to learn JavaScript in 2022?</h3>
-            <p>JavaScript is the language used to design logic for the web Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quibusdam quis at, ut officia incidunt aliquam numquam vel earum nobis?</p>
-          </div>
-          <div className={styles.blogItem}>
-            <h3>How to learn JavaScript in 2022?</h3>
-            <p>JavaScript is the language used to design logic for the web Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, nihil?</p>
-          </div>
+          {/* <Link href={'/blogpost/learn-javascript'}> */}
 
-          <div className={styles.blogItem}>
-            <h3>How to learn JavaScript in 2022?</h3>
-            <p>JavaScript is the language used to design logic for the web Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga praesentium facere incidunt autem cumque at explicabo magnam magni, ipsam neque.</p>
+          <Link href={`/blogpost/${blogItem.slug}`}>
+            <h3 className={styles.h3tag}>{blogItem.title}</h3></Link>
+            <p>{blogItem.content.substr(0,140)}...</p>
+          </div> 
           </div>
-      </div>
+        } )
+      }
+      
     </main>
     </div>
   )
