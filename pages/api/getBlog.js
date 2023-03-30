@@ -1,4 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// http://localhost:3000/api/getBlog?slug=how-to-learn-next
+
 const fs = require('fs');
 
 export default function handler(req, res) {

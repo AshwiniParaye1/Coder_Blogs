@@ -2,10 +2,10 @@
 const fs = require('fs');
 
 export default function handler(req, res) {
-  fs.readFile('blogdata/how-to-learn-next.json', 'utf-8', (err, data) =>{
-    // console.log(data)
+  fs.readdir('blogdata',  (err, data) =>{
+    console.log(data)
         
-    res.status(200).json( JSON.parse(data) )
+    res.status(200).json( data )
 
     console.log(typeof data)
   })
