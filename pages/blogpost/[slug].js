@@ -1,21 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 
 const slug = () => {
 
+  const [blog, setBlog] = useState();
+
     const router = useRouter();
-    const { slug } = router.query;
+    useEffect(() => {
+        if (!router.isReady) return;
+        const { slug } = router.query;
+        fetch(`http://localhost:3000/api/getBlog?slug=${slug}`).then((a) => {
+            return a.json();
+        })
+            .then((parsed) => {
+                setBlog(parsed)
+            })
+    }, [router.isReady])
+  
+
 
 
   return ( <div>
     <main className={styles.mainBlogpost}>
 
-      <h1>Title of the page {slug}</h1>
+      <h1>{blog && blog.title}</h1>
       <hr />
       <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum cupiditate nam esse corporis doloremque similique molestias, deleniti, repudiandae magni repellendus, sunt ad beatae!
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate. Doloribus beatae debitis fugit maiores laborum esse odit fuga, quam veniam aliquam natus saepe similique iste consequatur itaque id, libero error voluptatibus nulla maxime, dolorum quo eveniet officiis. Nam velit fugit iure tempore tempora rem.
+        {blog && blog.content}
       </div>
 
     </main>
