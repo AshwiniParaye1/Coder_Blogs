@@ -1,0 +1,22 @@
+.container {
+    margin: 45px auto;
+    max-width: 45vw;
+}
+
+.center {
+    text-align: center;
+}
+
+.container h1{
+    margin-bottom: 5px;
+}
+.container h2{
+    margin-bottom: 5px;
+}
+.container p{
+    margin-bottom: 30px;
+}
+.container ul{
+    margin-bottom: 30px;
+}
+
