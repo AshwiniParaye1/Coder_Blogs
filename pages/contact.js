@@ -9,7 +9,28 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, phone, email, desc);
+    // console.log(name, phone, email, desc);
+    const data = { phone, name, email, desc };
+
+    fetch("http://localhost:3000/api/postContact", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log("Success:", data);
+        alert("Thanks for contacting!");
+        setPhone("");
+        setName("");
+        setDesc("");
+        setEmail("");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const handleChange = (e) => {
